@@ -11,3 +11,16 @@
 /home/sebas/Escritorio/patrones/obj/Debug/netcoreapp3.1/patrones.dll
 /home/sebas/Escritorio/patrones/obj/Debug/netcoreapp3.1/patrones.pdb
 /home/sebas/Escritorio/patrones/obj/Debug/netcoreapp3.1/patrones.genruntimeconfig.cache
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/bin/Debug/netcoreapp3.1/patrones
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/bin/Debug/netcoreapp3.1/patrones.deps.json
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/bin/Debug/netcoreapp3.1/patrones.runtimeconfig.json
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/bin/Debug/netcoreapp3.1/patrones.runtimeconfig.dev.json
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/bin/Debug/netcoreapp3.1/patrones.dll
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/bin/Debug/netcoreapp3.1/patrones.pdb
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/obj/Debug/netcoreapp3.1/patrones.csprojAssemblyReference.cache
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/obj/Debug/netcoreapp3.1/patrones.AssemblyInfoInputs.cache
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/obj/Debug/netcoreapp3.1/patrones.AssemblyInfo.cs
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/obj/Debug/netcoreapp3.1/patrones.csproj.CoreCompileInputs.cache
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/obj/Debug/netcoreapp3.1/patrones.dll
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/obj/Debug/netcoreapp3.1/patrones.pdb
+/home/sebas/Escritorio/patrones/patrones_martes/Clase2/obj/Debug/netcoreapp3.1/patrones.genruntimeconfig.cache

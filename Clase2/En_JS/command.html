@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        /* asbtract */ class MostrarMensaje {
+            
+            constructor(msj) {
+                this.msj = msj;
+            }
+
+            mostrar() {}
+
+        }
+
+        class MostrarPorConsola extends MostrarMensaje {
+            constructor(msj) {
+                super(msj);
+            }
+
+            mostrar() {
+                console.log(this.msj);
+            }
+        }
+
+        class MostrarPorAlert extends MostrarMensaje {
+            constructor(msj) {
+                super(msj);
+            }
+
+            mostrar() {
+                alert(this.msj);
+            }
+        }
+
+        class MostrarEnHtml extends MostrarMensaje {
+            constructor(msj) {
+                super(msj);
+            }
+
+            mostrar() {
+                document.write(this.msj);
+            }
+        }
+
+
+        class Mostrador {
+
+            constructor(commnad) {
+                this.command = commnad;
+            }
+
+            ejecutar() {
+                this.command.mostrar();
+            }
+
+        }
+
+        const saludo = "Hola mundo";
+
+        const mostradores = {
+            consola: MostrarPorConsola,
+            alert: MostrarPorAlert,
+            html: MostrarEnHtml
+        }
+
+        let medio = prompt('¿En donde quieres mostrar el mensaje?');
+
+        const mostrar = new mostradores[medio](saludo); // Declaración
+
+        const mostrador = new Mostrador(mostrar); // Invocacion
+        mostrador.ejecutar();
+
+    </script>
+
+</body>
+</html>

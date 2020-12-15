@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="goHome">Home</div>
+		<div id="goAbout">Acerca de</div>
+
+		<div id="contenido"></div>
+
+		<script>
+            class Page {
+				constructor(nombre, contenido) {
+					this.siguiente = {};
+					this.nombre = nombre;
+					this.contenido = contenido;
+				}
+
+				handleRequest(request) {
+					if (request.url == this.nombre) {
+						document.getElementById("contenido").innerHTML = this.contenido;
+					} else if (this.siguiente != {}) {
+						this.siguiente.handleRequest(request);
+					}
+				}
+
+                setSiguiente(nextRouteHandler) {
+					this.siguiente = nextRouteHandler;
+				}
+			}
+
+			const homePage = new Page('home', '<h1>Estas en Home</h1>');
+			const aboutPage = new Page('about', '<h2>Estas en About</h2>');
+
+			homePage.setSiguiente(aboutPage);
+
+			document.getElementById("goHome").onclick = function () {
+				homePage.handleRequest({
+					url: "home",
+				});
+			};
+
+			document.getElementById("goAbout").onclick = function () {
+				homePage.handleRequest({
+					url: "about",
+				});
+			};
+		</script>
+	</body>
+</html>

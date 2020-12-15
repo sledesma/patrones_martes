@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/sebas/Escritorio/patrones/patrones.csproj": {}
+    "/home/sebas/Escritorio/patrones/patrones_martes/Clase2/patrones.csproj": {}
   },
   "projects": {
-    "/home/sebas/Escritorio/patrones/patrones.csproj": {
+    "/home/sebas/Escritorio/patrones/patrones_martes/Clase2/patrones.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/sebas/Escritorio/patrones/patrones.csproj",
+        "projectUniqueName": "/home/sebas/Escritorio/patrones/patrones_martes/Clase2/patrones.csproj",
         "projectName": "patrones",
-        "projectPath": "/home/sebas/Escritorio/patrones/patrones.csproj",
+        "projectPath": "/home/sebas/Escritorio/patrones/patrones_martes/Clase2/patrones.csproj",
         "packagesPath": "/home/sebas/.nuget/packages/",
-        "outputPath": "/home/sebas/Escritorio/patrones/obj/",
+        "outputPath": "/home/sebas/Escritorio/patrones/patrones_martes/Clase2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/sebas/.nuget/NuGet/NuGet.Config"

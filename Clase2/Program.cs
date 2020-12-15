@@ -7,143 +7,88 @@ namespace patrones
     {
         static void Main(string[] args)
         {
-            EstadoAlumno sobresaliente = new EstadoSobresaliente();
-            EstadoAlumno excelente = new EstadoExcelente();
-            EstadoAlumno bueno = new EstadoBueno();
-            EstadoAlumno regular = new EstadoRegular();
-            EstadoAlumno insuficiente = new EstadoInsuficiente();
+            Lang saludo = null;
 
-            bueno
-                .SetSiguenteEstado(insuficiente)
-                .SetSiguenteEstado(sobresaliente)
-                .SetSiguenteEstado(excelente)
-                .SetSiguenteEstado(regular);
+            Console.WriteLine("Seleccione el lenguaje de la aplicación");
+            string lang = Console.ReadLine();
 
-            List<Alumno> notasDiciembre = new List<Alumno>();
+            switch(lang) {
+                case "es":
+                    saludo = new Es();
+                    break;
 
-            notasDiciembre.Add(new Alumno("Carlos Lopez", 10));
-            notasDiciembre.Add(new Alumno("Andrea Perez", 1)); 
-            notasDiciembre.Add(new Alumno("Camila Palladino", 2)); 
-            notasDiciembre.Add(new Alumno("Gabriel Berger", 5)); 
-            notasDiciembre.Add(new Alumno("Josefina Lopez Quintas", 7)); 
-            notasDiciembre.Add(new Alumno("Alberto Kristof", 6)); 
-            notasDiciembre.Add(new Alumno("Ramon Calvin", 8)); 
+                case "en":
+                    saludo = new En();
+                    break;
 
-            notasDiciembre.ForEach(alumno =>
-            {
-                bueno.EvaluarEstado(alumno);
-            });
+                case "dt":
+                    saludo = new Dt();
+                    break;
+            }
+
+            LangInterface idioma = new LangInterface(saludo);
+            Console.WriteLine(idioma.Get("SALUDO"));
+            Console.WriteLine(idioma.Get("DESPEDIDA"));
 
         }
     }
 
-    class Alumno
+    abstract class Lang {
+
+        public Dictionary<string, string> Dict;
+
+        public Lang() {
+            this.Dict = new Dictionary<string, string>();
+        }
+
+        public abstract void configLang();
+
+
+
+    }
+
+    class Es : Lang
     {
-        public string nombre { get; set; }
-        public int nota { get; set; }
-
-        public Alumno(string nombre, int nota)
+        public override void configLang()
         {
-            this.nombre = nombre;
-            this.nota = nota;
+            this.Dict.Add("SALUDO", "Hola!");
+            this.Dict.Add("DESPEDIDA", "Adios!");
         }
     }
 
-
-    abstract class EstadoAlumno
+    class En : Lang
     {
-
-        protected EstadoAlumno SiguienteEstado;
-
-        public EstadoAlumno SetSiguenteEstado(EstadoAlumno next)
+        public override void configLang()
         {
-            this.SiguienteEstado = next;
-            return next;
+            this.Dict.Add("SALUDO", "Hello");
+            this.Dict.Add("DESPEDIDA", "Goodbye");
         }
-
-        public abstract void EvaluarEstado(Alumno alumno);
-
     }
 
-    /***
-    Sobresaliente: 10
-    Excelentes: 9 u 8
-    Buenos: 7 o 6
-    Regulares: 5 o 4
-    Insuficiente: 3, 2 o 1
-    */
-    class EstadoSobresaliente : EstadoAlumno
+    class Dt : Lang
     {
-        public override void EvaluarEstado(Alumno alumno)
+        public override void configLang()
         {
-            if (alumno.nota == 10)
-            {
-                Console.WriteLine("Felicidades {0}! Eres sobresaliente", alumno.nombre);
-            }
-            else if (this.SiguienteEstado != null)
-            {
-                this.SiguienteEstado.EvaluarEstado(alumno);
-            }
+            this.Dict.Add("SALUDO", "Hallo");
+            this.Dict.Add("DESPEDIDA", "Guten Tag");
         }
     }
 
-    class EstadoExcelente : EstadoAlumno
-    {
-        public override void EvaluarEstado(Alumno alumno)
-        {
-            if (alumno.nota == 9 || alumno.nota == 8)
-            {
-                Console.WriteLine("Muy bien {0}! Eres excelente", alumno.nombre);
-            }
-            else if (this.SiguienteEstado != null)
-            {
-                this.SiguienteEstado.EvaluarEstado(alumno);
-            }
+    class LangInterface {
+        public Lang lang;
+
+        public LangInterface(Lang idioma) {
+            this.lang = idioma;
+            this.lang.configLang();
+        }
+
+        public Dictionary<string, string> GetDict() {
+            return this.lang.Dict;
+        }
+
+        public string Get(string key) {
+            return this.lang.Dict[key];
         }
     }
 
-    class EstadoBueno : EstadoAlumno
-    {
-        public override void EvaluarEstado(Alumno alumno)
-        {
-            if (alumno.nota == 7 || alumno.nota == 6)
-            {
-                Console.WriteLine("Vas bien {0}! Eres bueno", alumno.nombre);
-            }
-            else if (this.SiguienteEstado != null)
-            {
-                this.SiguienteEstado.EvaluarEstado(alumno);
-            }
-        }
-    }
-
-    class EstadoRegular : EstadoAlumno
-    {
-        public override void EvaluarEstado(Alumno alumno)
-        {
-            if (alumno.nota == 5 || alumno.nota == 4)
-            {
-                Console.WriteLine("Hay que estudiar más {0}! Eres regular", alumno.nombre);
-            }
-            else if (this.SiguienteEstado != null)
-            {
-                this.SiguienteEstado.EvaluarEstado(alumno);
-            }
-        }
-    }
-
-    class EstadoInsuficiente : EstadoAlumno
-    {
-        public override void EvaluarEstado(Alumno alumno)
-        {
-            if (alumno.nota >= 1 && alumno.nota <= 3)
-            {
-                Console.WriteLine("No has alcanzado lo que se esperaba {0}! Intenta de nuevo", alumno.nombre);
-            }
-            else if (this.SiguienteEstado != null)
-            {
-                this.SiguienteEstado.EvaluarEstado(alumno);
-            }
-        }
-    }
 }
