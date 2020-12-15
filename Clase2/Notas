@@ -1,0 +1,10 @@
+Cadena de Responsabilidades
+
+Router
+
+
+/   =>  Procesar la pagina Home
+/about  =>  Procesar la pagina Acerca de
+/productos  => Procesar la pagina Productos
+
+
