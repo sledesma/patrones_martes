@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="#" id="frmContacto">
+
+        <input type="text" id="txtNombre" placeholder="Nombre"> <br>
+        <input type="text" id="txtApellido" placeholder="Apellido"> <br>
+        <button>Enviar</button>
+
+    </form>
+
+
+    <script>
+
+        class Errores {
+
+            constructor() {
+                this.errores = [];
+            }
+
+            set(campo, errores) {
+                this.errores.push({
+                    id: campo,
+                    lista: errores
+                });
+            }
+
+            remove(campo) {
+                this.errores = this.errores.filter(error => {
+                    return error.id != campo
+                })
+            }
+
+            hayErrores() {
+                return this.errores.length > 0
+            }
+
+        }
+
+        // Array
+        var errores = [];
+
+        document.querySelector('#txtNombre').focus();
+
+        // Escribir errores
+        document.querySelector('#txtNombre').addEventListener('blur', e => {
+            if(e.target.value == '') {
+                errores.push({
+                    id: e.target.id,
+                    lista: [
+                        'Esta vacio'
+                    ]
+                });
+            } else {
+                errores = errores.filter(error => {
+                    return error.id != e.target.id
+                });
+            }
+        });
+
+        document.querySelector('#txtApellido').addEventListener('blur', e => {
+            if(e.target.value == '') {
+                errores.push({
+                    id: e.target.id,
+                    lista: [
+                        'Esta vacio'
+                    ]
+                });
+            } else {
+                errores = errores.filter(error => {
+                    return error.id != e.target.id
+                });
+            }
+        });
+
+        // Leer errores
+        document.querySelector('#frmContacto').addEventListener('submit', e => {
+            e.preventDefault();
+            if(errores.length > 0) {
+                alert("Hay errores");
+            } else {
+                alert("Todo bien");
+                e.target.submit()
+            }
+        });
+
+
+    </script>
+    
+</body>
+</html>
