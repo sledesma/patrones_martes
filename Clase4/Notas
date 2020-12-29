@@ -1,0 +1,17 @@
+* Dudas sobre cualquier patron del Alumni (visto en clase O NO) - HECHO
+* Dudas sobre cualquier patrón que tengan (ayudaré en lo que pueda :B) - HECHO
+
+* Adaptaciones a JS sobre patrones (Excepciones)
+    - Decorator (JS | TS)
+    - Prototype (JS)
+* Patrones de hoy (
+    Composite - Implementar estructuras de Arbol
+    Strategy - Separar la implementación en una clase
+    Prototype 
+    Visitor - Hacer algoritmos intercambiables
+)
+
+* ¿Qué patrones -hábitos- llevaría al fracaso de un proyecto?
+* Otros patrones - Arquitectónicos, etc.
+
+TIPADO FIJO / TIPADO DINAMICO

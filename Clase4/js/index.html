@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // Prototipos - MINIMO control y planificacion / estrucutra
+        // La clase JS es AZUCAR SINTACTICO
+
+        class Pedido {
+            constructor(nombre) {
+                this.nombre = nombre;
+            }
+        }
+
+        const p = new Pedido("Mi sanguche");
+
+        // Decorando a p
+        function gustoPollo(pedido) {
+            pedido.gusto = "Pollo";
+            return pedido;
+        }
+
+        function gustoCarne(pedido) {
+            pedido.gusto = "Carne";
+            return pedido;
+        }
+
+        function panOregano(pedido) {
+            pedido.pan = "Cebolla y Oregano";
+            return pedido;
+        }
+
+        function envioDecorator(pedido) {
+            pedido.enviar = function() {
+                console.log("Enviando el pedido");
+            }
+            return pedido
+        }
+
+        console.log(
+            panOregano(
+                gustoCarne(
+                    envioDecorator(
+                        p
+                    )
+                )
+            )
+        );
+
+    </script>
+
+</body>
+</html>
